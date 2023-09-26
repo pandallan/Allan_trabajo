@@ -37,7 +37,7 @@ class Program
                         NumerosPrimos();
                         break;
                     case 5:
-                        //Fibonacci();
+                        Fibonacci();
                         break;
                     case 6:
                         Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
@@ -205,5 +205,35 @@ static void NumerosPrimos()
             factorial *= i;
         }
         return factorial;
+    }
+static void Fibonacci()
+    {
+        do
+        {
+            Console.Clear(); // Limpiar la pantalla
+            Console.Write("Ingrese la cantidad de iteraciones para la sucesión de Fibonacci: ");
+            string? input = Console.ReadLine();
+            if (!string.IsNullOrEmpty(input) && int.TryParse(input, out int iteraciones) && iteraciones > 0)
+            {
+                int a = 0, b = 1;
+                Console.Write("Sucesión de Fibonacci: ");
+                for (int i = 0; i < iteraciones; i++)
+                {
+                    Console.Write(a + " ");
+                    int temp = a;
+                    a = b;
+                    b = temp + b;
+                }
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero positivo mayor que 0.");
+            }
+
+            Console.Write("¿Desea generar otra sucesión de Fibonacci? (s/n): ");
+        } while (Console.ReadLine()?.Trim().ToLower() == "s");
+
+        Console.Clear(); // Limpiar la pantalla antes de salir de la función
     }
 }
