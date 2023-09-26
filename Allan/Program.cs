@@ -31,7 +31,7 @@ class Program
                        TablaDeMultiplicar();
                         break;
                     case 3:
-                        //Factorial();
+                        Factorial();
                         break;
                     case 4:
                         //NumerosPrimos();
@@ -115,6 +115,32 @@ static void TablaDeMultiplicar()
             }
 
             Console.Write("¿Desea realizar otra operación en Tabla de Multiplicar? (s/n): ");
+        } while (Console.ReadLine()?.Trim().ToLower() == "s");
+
+        Console.Clear(); // Limpiar la pantalla antes de salir de la función
+    }
+static void Factorial()
+    {
+        do
+        {
+            Console.Clear(); // Limpiar la pantalla
+            Console.Write("Ingrese un número entero positivo para calcular y mostrar el factorial de ese numero: ");
+            string? input = Console.ReadLine();
+            if (!string.IsNullOrEmpty(input) && int.TryParse(input, out int numero))
+            {
+                int factorial = 1;
+                for (int i = 1; i <= numero; i++)
+                {
+                    factorial *= i;
+                }
+                Console.WriteLine($"El factorial de {numero} es {factorial}");
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero positivo.");
+            }
+
+            Console.Write("¿Desea calcular otro factorial? (s/n): ");
         } while (Console.ReadLine()?.Trim().ToLower() == "s");
 
         Console.Clear(); // Limpiar la pantalla antes de salir de la función
